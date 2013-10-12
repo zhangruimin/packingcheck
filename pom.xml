@@ -28,6 +28,13 @@
             <version>2.4.1</version>
             <type>apklib</type>
         </dependency>
+
+        <dependency>
+            <groupId>ca.laplanete.mobile</groupId>
+            <artifactId>pageddragdropgrid</artifactId>
+            <version>0.1</version>
+            <type>apklib</type>
+        </dependency>
 	</dependencies>
 
     <properties>
