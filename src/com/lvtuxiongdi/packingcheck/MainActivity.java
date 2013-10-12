@@ -5,12 +5,9 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
-import ca.laplanete.mobile.pageddragdropgrid.OnPageChangedListener;
 import ca.laplanete.mobile.pageddragdropgrid.PagedDragDropGrid;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity {
 
     private String CURRENT_PAGE_KEY = "CURRENT_PAGE_KEY";
 
@@ -26,17 +23,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         ExamplePagedDragDropGridAdapter adapter = new ExamplePagedDragDropGridAdapter(this, gridview);
 
         gridview.setAdapter(adapter);
-        gridview.setClickListener(this);
 
         gridview.setBackgroundColor(Color.LTGRAY);
-
-
-        gridview.setOnPageChangedListener(new OnPageChangedListener() {
-            @Override
-            public void onPageChanged(PagedDragDropGrid sender, int newPageNumber) {
-                Toast.makeText(MainActivity.this, "Page changed to page " + newPageNumber, Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override
@@ -67,10 +55,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
         });
 
         return true;
-    }
-
-    @Override
-    public void onClick(View v) {
-        Toast.makeText(this, "Clicked View", Toast.LENGTH_SHORT).show();
     }
 }
