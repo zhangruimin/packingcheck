@@ -2,7 +2,9 @@
 package com.lvtuxiongdi.packingcheck;
 
 import android.annotation.TargetApi;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.util.Log;
@@ -13,6 +15,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import ca.laplanete.mobile.pageddragdropgrid.PagedDragDropGrid;
 import ca.laplanete.mobile.pageddragdropgrid.PagedDragDropGridAdapter;
 import com.lvtuxiongdi.packingcheck.db.DatabaseHandler;
@@ -24,6 +27,7 @@ import java.util.List;
 
 public class PackingGridAdapter implements PagedDragDropGridAdapter {
 
+    private static final String TAG = "PackingGridAdapter";
     private static final int pageSize = 20;
     private final DatabaseHandler databaseHandler;
     private Context context;
@@ -69,7 +73,7 @@ public class PackingGridAdapter implements PagedDragDropGridAdapter {
         layout.setOrientation(LinearLayout.VERTICAL);
 
         ImageView icon = new ImageView(context);
-        Packing item = getItem(page, index);
+        final Packing item = getItem(page, index);
         icon.setImageResource(item.getDrawable());
         icon.setPadding(15, 15, 15, 15);
 
@@ -90,12 +94,22 @@ public class PackingGridAdapter implements PagedDragDropGridAdapter {
         if (page % 2 == 0) {
             setViewBackground(layout);
             layout.setClickable(true);
+            layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d(TAG, String.valueOf(item.getId()) + " clicked");
+                    Intent intent = new Intent(context, PackingItemsActivity.class);
+                    intent.putExtra("packing", item);
+                    context.startActivity(intent);
+                }
+            });
             layout.setOnLongClickListener(new OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
                     return gridview.onLongClick(v);
                 }
             });
+
         }
 
         layout.addView(label);

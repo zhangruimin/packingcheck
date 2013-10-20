@@ -32,7 +32,7 @@ public class PackingCheckApplication extends Application{
     }
 
     private void insertInitData() {
-        databaseHandler.addPacking(new Packing(2, "Item 2", R.drawable.ic_launcher));
+        databaseHandler.addPacking(new Packing(2, "去爬山", R.drawable.ic_hiking));
         databaseHandler.addPacking(new Packing(3, "Item 3", R.drawable.ic_launcher));
         databaseHandler.addPacking(new Packing(4, "Item 4", R.drawable.ic_launcher));
     }

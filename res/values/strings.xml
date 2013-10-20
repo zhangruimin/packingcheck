@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">行囊检查</string>
+    <string name="check_packing">检查行囊</string>
+    <string name="packing">行囊</string>
 </resources>

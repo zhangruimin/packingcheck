@@ -1,13 +1,12 @@
 package com.lvtuxiongdi.packingcheck;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import ca.laplanete.mobile.pageddragdropgrid.PagedDragDropGrid;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
 
-public class MainActivity extends Activity {
+public class MainActivity extends SherlockActivity {
 
     private String CURRENT_PAGE_KEY = "CURRENT_PAGE_KEY";
 
@@ -17,7 +16,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.layout_list);
+        setContentView(R.layout.activity_main);
         gridview = (PagedDragDropGrid) findViewById(R.id.gridview);
 
         PackingGridAdapter adapter = new PackingGridAdapter(this, gridview);
@@ -44,9 +43,9 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add("Reset").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+        menu.add("Reset").setOnMenuItemClickListener(new com.actionbarsherlock.view.MenuItem.OnMenuItemClickListener() {
             @Override
-            public boolean onMenuItemClick(MenuItem item) {
+            public boolean onMenuItemClick(com.actionbarsherlock.view.MenuItem item) {
                 gridview.setAdapter(new PackingGridAdapter(MainActivity.this, gridview));
                 gridview.notifyDataSetChanged();
 

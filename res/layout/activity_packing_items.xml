@@ -1,0 +1,12 @@
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/ListContainer"
+        android:background="@color/theme_color_background">
+
+    <ListView
+            android:id="@+id/item_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"/>
+
+</LinearLayout>
