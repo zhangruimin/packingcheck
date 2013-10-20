@@ -40,7 +40,7 @@ public class PackingGridAdapter implements PagedDragDropGridAdapter {
 
 
         List<Packing> allPackings = databaseHandler.getAllPackings();
-        allPackings.add(new Packing(1, "新的行囊", R.drawable.ic_add_packing));
+        allPackings.add(0, new Packing(1, "新的行囊", R.drawable.ic_add_packing));
 
         int pageNum = (allPackings.size() - 1) / pageSize + 1;
         for (int i = 0; i < pageNum; i++) {
