@@ -28,23 +28,25 @@
  */
 package com.lvtuxiongdi.packingcheck;
 
+import com.lvtuxiongdi.packingcheck.model.Packing;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Page {
 
-	private List<Item> items = new ArrayList<Item>();
+	private List<Packing> items = new ArrayList<Packing>();
 
-	public List<Item> getItems() {
+	public List<Packing> getItems() {
 		return items;
 	}
 
-	public void setItems(List<Item> items) {
+	public void setItems(List<Packing> items) {
 		this.items = items;
 	}
 	
-	public void addItem(Item item) {
+	public void addItem(Packing item) {
 		items.add(item);
 	}
 	
@@ -52,8 +54,8 @@ public class Page {
 		Collections.swap(items, itemA, itemB);
 	}
 
-	public Item removeItem(int itemIndex) {
-		Item item = items.get(itemIndex);
+	public Packing removeItem(int itemIndex) {
+		Packing item = items.get(itemIndex);
 		items.remove(itemIndex);
 		return item;
 	}

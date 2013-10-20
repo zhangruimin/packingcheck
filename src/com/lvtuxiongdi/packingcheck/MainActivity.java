@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.layout_list);
         gridview = (PagedDragDropGrid) findViewById(R.id.gridview);
 
-        ExamplePagedDragDropGridAdapter adapter = new ExamplePagedDragDropGridAdapter(this, gridview);
+        PackingGridAdapter adapter = new PackingGridAdapter(this, gridview);
 
         gridview.setAdapter(adapter);
 
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         menu.add("Reset").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                gridview.setAdapter(new ExamplePagedDragDropGridAdapter(MainActivity.this, gridview));
+                gridview.setAdapter(new PackingGridAdapter(MainActivity.this, gridview));
                 gridview.notifyDataSetChanged();
 
                 return true;
